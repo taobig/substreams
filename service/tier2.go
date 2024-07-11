@@ -229,6 +229,12 @@ func (s *Tier2Service) getWASMRegistry(wasmExtensionConfigs map[string]string) (
 func (s *Tier2Service) processRange(ctx context.Context, request *pbssinternal.ProcessRangeRequest, respFunc substreams.ResponseFunc) error {
 	logger := reqctx.Logger(ctx)
 
+	if os.Getenv("LOG_TEST") == "true" {
+		for i := 0; i < 100; i++ {
+			logger.Info("test log", zap.Int("i", i))
+		}
+	}
+
 	mergedBlocksStore, cacheStore, unmeteredCacheStore, err := s.getStores(ctx, request)
 	if err != nil {
 		return err
