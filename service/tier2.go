@@ -229,6 +229,8 @@ func (s *Tier2Service) getWASMRegistry(wasmExtensionConfigs map[string]string) (
 func (s *Tier2Service) processRange(ctx context.Context, request *pbssinternal.ProcessRangeRequest, respFunc substreams.ResponseFunc) error {
 	logger := reqctx.Logger(ctx)
 
+	zlog.Info("test log 2")
+
 	if os.Getenv("LOG_TEST") == "true" {
 		for i := 0; i < 100; i++ {
 			logger.Info("test log", zap.Int("i", i))
