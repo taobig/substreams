@@ -230,6 +230,8 @@ func (s *Tier2Service) processRange(ctx context.Context, request *pbssinternal.P
 	logger := reqctx.Logger(ctx)
 
 	zlog.Info("test log 2")
+	fmt.Println("test log 2 by println")
+	fmt.Println(`{"severity":"INFO","timestamp":"2024-07-11T15:43:49.049158100Z","logger":"fake.metrics.emitter","message":"event flushed","trace_id":"d9f77edf6be4738c28d216436eb700dc","stage":"graph_out","segment_number":100,"elapsed":0.00001366,"logging.googleapis.com/labels":{}}`)
 
 	if os.Getenv("LOG_TEST") == "true" {
 		for i := 0; i < 100; i++ {
