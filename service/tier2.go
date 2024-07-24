@@ -171,6 +171,7 @@ func (s *Tier2Service) ProcessRange(request *pbssinternal.ProcessRangeRequest, s
 		zap.Uint32("stage", request.Stage),
 		zap.Strings("modules", moduleNames),
 		zap.String("output_module", request.OutputModule),
+		zap.Uint64("first_streamable_block", request.FirstStreamableBlock),
 	}
 
 	if auth := dauth.FromContext(ctx); auth != nil {
