@@ -31,10 +31,7 @@ func ToWasmModuleTypeArray(s []string) []WASMModuleType {
 }
 
 func (r *ProcessRangeRequest) StartBlock() uint64 {
-	if out := r.SegmentNumber * r.SegmentSize; out >= r.FirstStreamableBlock {
-		return out
-	}
-	return r.FirstStreamableBlock
+	return r.SegmentNumber * r.SegmentSize
 }
 
 func (r *ProcessRangeRequest) StopBlock() uint64 {
